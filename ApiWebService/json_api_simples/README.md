@@ -19,5 +19,12 @@
          flutter pub add http 
          flutter pub get
 
+21.08
+        ENTRA NO GOOGLE
+            https://home.openweathermap.org/api_keys - e cria a sua chave 
+            Ai escreve em outra janela e coloca a chave sua 
+            https://api.openweathermap.org/data/2.5/weather?q=limeira&appid=d90af7ec5fd0a7aef4f0d66a32d02e00
 
+        TERMINAL 
+        flutter create json_web_service_clima  --platforms=android --empty
 
