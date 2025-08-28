@@ -2,11 +2,16 @@ import 'package:biblioteca_app/models/user_model.dart';
 import 'package:biblioteca_app/services/api_service.dart';
 
 class UserControler {
+  //obs: não precisa instaciar obj de ApiService (métodos static)
+  // final Obj = ApiService();
+
   //métodos
   // GET dos Usuários
   Future<List<UserModel>> fetchAll() async {
-    final list = await ApiService.getList("users?_sort=name");
-    // retorna a lista de Usuário Convertidas para User Model
+    final list = await ApiService.getList(
+      "users?_sort=name",
+    ); //?_sort=name -> flag para organizar em order alfabetica
+    // retorna a lista de Usuário Convertidas para User Model Lista<dynamic> => Lista<OBJ>
     return list.map<UserModel>((item) => UserModel.fromJson(item)).toList();
   }
 
@@ -31,8 +36,10 @@ class UserControler {
     return UserModel.fromJson(updated);
   }
 
-   Future<void> delete(String id) async{
+  Future<void> delete(String id) async {
     await ApiService.delete("users", id);
     // Não há retorno, usuário deletado com sucesso
   }
+
+  Future<void> update(UserModel user) async {}
 }

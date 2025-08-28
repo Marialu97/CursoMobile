@@ -70,4 +70,69 @@
 
     -----------------------------------------------
 
+    28.08.25
+        
+        VERIFIQUEI AS PASTAS 
+        CORECAO DA PASTA QUE FEZ SOSINHA SO UMA 
+        -book_model.dart
+
+        CEIAR A PASTA 
+        -controllers
+        -book_controller.dart
+
+        *TERMINAL
+        mkdir /lib/views/user  
+        mkdir /lib/views/book   
+        mkdir /lib/views/loan     
+        type nul > lib/views/home_view.dart  
+        type nul > lib/views/user/user_list_view.dart 
+        type nul > lib/views/user/user_form_view.dart 
+        type nul > lib/views/book/book_form_view.dart  
+        type nul > lib/views/book/book_list_view.dart
+        type nul > lib/views/loan/loan_list_view.dart   
+        type nul > lib/views/loan/loan_form_view.dart 
+
+        VAI NA PASTA 
+        -home_view.dart
+        ESCREVE DENTRO 
+        
+        -main.dart
+        ESCREVE 
+
+        *TERMINAL 
+        ESTARTA O TERMINAL 
+        npx json-server --watch backend/db.json --port 3009
+        flutter run 
+
+        -ENTRA NA PASTA 
+        -user_list_view.dart
+        ESCREVE DENTRO
+
+======================================================================
+    SE DER ERRADO COMO DEU NO MEU O NOME NA PARTE DO "USUÁRIOS"  QUANDO RODA VERIFICA NO db.json SE ESTA name.
+======================================================================
+ 
+ --------------------------------------------------------------------------
+     FAZ SOZINHO A PARTE PARA LIVROS 
+    - book_list_view.dart
+
+           <!-- DEU CERTO  -->
+ --------------------------------------------------------------------------
+       VAI NA PASTA
+        user_list_view.dart
+        ESCREVE DENTRO 
+        user_form_view.dart
+        ESCREVE DENTRO 
+
+----------------------------------------------------------------------
+        LIVROS
+        EMPRESTIMO
+----------------------------------------------------------------------
+
+=====================================================================
+ERROS ENCONTRADOS NAO APAGA O USUÁRIO
+NÃO ATUALIZA 
+E NA HORA QUE ATUALIZA ELE JOGA PARA A PAGINA LIVROS 
+=====================================================================
+
 
