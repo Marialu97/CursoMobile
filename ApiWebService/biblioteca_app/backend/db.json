@@ -1,43 +1,34 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "João Silva",
-      "email": "joao@email.com"
+      "id": "1756985157070",
+      "name": "Mariaaa",
+      "email": "maria@gmail.com"
     },
     {
-      "id": "2",
-      "name": "Maria Souza",
-      "email": "maria@email.com"
+      "id": "1756986047599",
+      "name": "murilo",
+      "email": "murilo@gmail.com"
     },
     {
-      "id": null,
-      "name": "Simone",
-      "email": "simone@gmail.com"
+      "id": "1756986525431",
+      "name": "maaarrrrrrrvvvvvv",
+      "email": "mmmmaaaaeeeehhh"
     }
   ],
-  "books": [
+  "book": [
     {
-      "id": "1",
-      "title": "OGuia do Mochileiro das Galáxias",
-      "author": "Douglas Adams",
-      "avaliable": false
+      "id": "1756987046395",
+      "title": "yyyy",
+      "author": "yyyyy",
+      "avaliable": true
     },
     {
-      "id": "2",
-      "title": "Memórias Póstumas de Brás Cuba",
-      "author": "Machado de Assis",
+      "id": "1756987057535",
+      "title": "ggggg",
+      "author": "hhhh",
       "avaliable": true
     }
   ],
-  "loans": [
-    {
-      "id": "1",
-      "userId": 1,
-      "bookId": 1,
-      "startDate": "2025-08-20",
-      "dueDate": "2025-08-30",
-      "returned": false
-    }
-  ]
+  "loans": []
 }

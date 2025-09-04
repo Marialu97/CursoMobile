@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:biblioteca_app/controllers/book_controller.dart';
 import 'package:biblioteca_app/models/book_model.dart';
 import 'package:biblioteca_app/views/book/book_form_view.dart';
+import 'package:flutter/material.dart';
 
 class BookListView extends StatefulWidget {
   const BookListView({super.key});
@@ -13,14 +13,15 @@ class BookListView extends StatefulWidget {
 class _BookListViewState extends State<BookListView> {
   final _controller = BookControler();
   List<BookModel> _books = [];
-  bool _loading = true;
   List<BookModel> _filteredBooks = [];
+  bool _loading = true;
+
   final _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _load(); // carregar livros ao iniciar
+    _load();
   }
 
   void _load() async {
@@ -29,8 +30,7 @@ class _BookListViewState extends State<BookListView> {
       _books = await _controller.fetchAll();
       _filteredBooks = _books;
     } catch (e) {
-      // tratar erro aqui
-      print('Erro ao carregar livros: $e');
+      // Tratar erro aqui
     }
     setState(() => _loading = false);
   }
@@ -40,7 +40,7 @@ class _BookListViewState extends State<BookListView> {
     setState(() {
       _filteredBooks = _books.where((book) {
         return book.title.toLowerCase().contains(query) ||
-               book.author.toLowerCase().contains(query);
+            book.author.toLowerCase().contains(query);
       }).toList();
     });
   }
@@ -50,7 +50,7 @@ class _BookListViewState extends State<BookListView> {
       context,
       MaterialPageRoute(builder: (context) => BookFormView(book: book)),
     );
-    _load(); // recarrega após salvar
+    _load();
   }
 
   void _delete(BookModel book) async {
@@ -59,16 +59,14 @@ class _BookListViewState extends State<BookListView> {
       context: context,
       builder: (context) => AlertDialog(
         title: Text("Confirmar Exclusão"),
-        content: Text("Deseja realmente excluir o livro \"${book.title}\"?"),
+        content: Text("Deseja realmente excluir o livro '${book.title}'?"),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: Text("Cancelar"),
-          ),
+              onPressed: () => Navigator.pop(context, false),
+              child: Text("Cancelar")),
           TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: Text("Excluir"),
-          ),
+              onPressed: () => Navigator.pop(context, true),
+              child: Text("Excluir")),
         ],
       ),
     );
@@ -78,7 +76,7 @@ class _BookListViewState extends State<BookListView> {
         await _controller.delete(book.id!);
         _load();
       } catch (e) {
-        print("Erro ao excluir: $e");
+        // Criar mensagem de erro
       }
     }
   }
@@ -95,9 +93,8 @@ class _BookListViewState extends State<BookListView> {
                   TextField(
                     controller: _searchController,
                     decoration: InputDecoration(
-                      labelText: "Pesquisar Livro",
-                      border: OutlineInputBorder(),
-                    ),
+                        labelText: "Pesquisar Livro",
+                        border: OutlineInputBorder()),
                     onChanged: (value) => _booksFilter(),
                   ),
                   Expanded(
@@ -108,19 +105,26 @@ class _BookListViewState extends State<BookListView> {
                         return Card(
                           child: ListTile(
                             title: Text(book.title),
-                            subtitle: Text(book.author),
+                            subtitle: Text("Autor: ${book.author}"),
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  onPressed: () => _openForm(book: book),
                                   icon: Icon(Icons.edit),
+                                  onPressed: () => _openForm(book: book),
                                 ),
                                 IconButton(
-                                  onPressed: () => _delete(book),
                                   icon: Icon(Icons.delete, color: Colors.red),
+                                  onPressed: () => _delete(book),
                                 ),
                               ],
+                            ),
+                            leading: Icon(
+                              book.avaliable
+                                  ? Icons.check_circle
+                                  : Icons.cancel,
+                              color:
+                                  book.avaliable ? Colors.green : Colors.red,
                             ),
                           ),
                         );

@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:biblioteca_app/controllers/book_controller.dart';
 import 'package:biblioteca_app/models/book_model.dart';
 import 'package:biblioteca_app/views/home_view.dart';
+import 'package:flutter/material.dart';
 
 class BookFormView extends StatefulWidget {
-  final BookModel? book;
+  final BookModel? book; // Pode ser nulo para novo livro
 
   const BookFormView({super.key, this.book});
 
@@ -18,8 +18,7 @@ class _BookFormViewState extends State<BookFormView> {
 
   final _titleController = TextEditingController();
   final _authorController = TextEditingController();
-
-  bool _avaliable = true;
+  bool _avaliable = true; // padrão disponível
 
   @override
   void initState() {
@@ -31,21 +30,32 @@ class _BookFormViewState extends State<BookFormView> {
     }
   }
 
-  void _saveOrUpdate() async {
+  void _save() async {
     if (_formKey.currentState!.validate()) {
       final book = BookModel(
-        id: widget.book?.id,
+        id: DateTime.now().millisecondsSinceEpoch.toString(),
         title: _titleController.text,
         author: _authorController.text,
         avaliable: _avaliable,
       );
+      await _controller.create(book);
+      Navigator.pop(context);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => HomeView()),
+      );
+    }
+  }
 
-      if (widget.book == null) {
-        await _controller.create(book);
-      } else {
-        await _controller.update(book);
-      }
-
+  void _update() async {
+    if (_formKey.currentState!.validate()) {
+      final book = BookModel(
+        id: widget.book!.id,
+        title: _titleController.text,
+        author: _authorController.text,
+        avaliable: _avaliable,
+      );
+      await _controller.update(book);
       Navigator.pop(context);
       Navigator.pushReplacement(
         context,
@@ -56,48 +66,46 @@ class _BookFormViewState extends State<BookFormView> {
 
   @override
   Widget build(BuildContext context) {
-    final isEditing = widget.book != null;
-
     return Scaffold(
       appBar: AppBar(
-        title: Text(isEditing ? "Editar Livro" : "Novo Livro"),
+        title: Text(widget.book == null ? "Novo Livro" : "Editar Livro"),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
               TextFormField(
                 controller: _titleController,
-                decoration: const InputDecoration(labelText: "Título"),
+                decoration: InputDecoration(labelText: "Título"),
                 validator: (value) =>
                     value!.isEmpty ? "Informe o título" : null,
               ),
               TextFormField(
                 controller: _authorController,
-                decoration: const InputDecoration(labelText: "Autor"),
+                decoration: InputDecoration(labelText: "Autor"),
                 validator: (value) =>
                     value!.isEmpty ? "Informe o autor" : null,
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Row(
                 children: [
+                  Text("Disponível"),
                   Checkbox(
                     value: _avaliable,
                     onChanged: (value) {
                       setState(() {
-                        _avaliable = value ?? true;
+                        _avaliable = value ?? false;
                       });
                     },
                   ),
-                  const Text("Disponível")
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _saveOrUpdate,
-                child: Text(isEditing ? "Atualizar" : "Salvar"),
+                onPressed: widget.book == null ? _save : _update,
+                child: Text(widget.book == null ? "Salvar" : "Atualizar"),
               ),
             ],
           ),

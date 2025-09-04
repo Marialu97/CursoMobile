@@ -135,4 +135,9 @@ NÃO ATUALIZA
 E NA HORA QUE ATUALIZA ELE JOGA PARA A PAGINA LIVROS 
 =====================================================================
 
+04.09.25
 
+===============================================
+FAZER O DO LIVRO E DE EMPRESTIMO 
+DEUERRADO NO EMPRESTIMO
+============================================

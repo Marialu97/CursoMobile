@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   // base URL para Conexão com API
-  static const String _baseURL = "http://10.109.197.10:3009";
+  static const String _baseURL = "http://10.109.197.9:3009";
 
    // métodos da classe e não do obj => instanciar obj
   //GET (Listar todos os Recurso)

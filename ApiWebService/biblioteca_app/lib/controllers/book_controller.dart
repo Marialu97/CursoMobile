@@ -15,7 +15,7 @@ class BookControler {
 
   // POST -> Criar novo usuário
   Future<BookModel> create(BookModel u) async{
-    final created  = await ApiService.post("books", u.toMap());
+    final created  = await ApiService.post("book", u.toMap());
     // adiciona um Usuário e Retorna o Usuário Criado -> ID
     return BookModel.fromMap(created);
   }
