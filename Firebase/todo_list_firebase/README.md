@@ -113,6 +113,8 @@ DEU CERTO
             VAI NAS PASRA E DA IMPORTE 
 
             TERMINAL 
+
+            
             flutter run 
 
             NA PASTA 
@@ -134,4 +136,5 @@ DEU CERTO
             FAZER SOSINHO
 <!-- método para atualizar status da tareda  -->
  <!-- metodo para deletar tarefa -->
+                COREÇÃO 
 ===================================================================
