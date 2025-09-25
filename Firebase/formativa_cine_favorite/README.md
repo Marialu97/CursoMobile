@@ -1,81 +1,58 @@
-        ENTRA NO 
-        Firebase
-        CRIA UM BANCO NA DENTRO 
-        cine-favorito
-        ENTRA NO Criação 
-        Authentication
-        Firestore Database 
-        E MUDA 
+# Cine Favorite (Formativa)
+Contruir um Aplicativo do Zero - O CineFavorite que permitirá criar uma conta e buscar filmes em uma API e montar uma galeria pessoal de filmes favoritos, com poster e nota avaliativa do usuário par o filme.
 
-        
-        TERMINAL 
-        flutter create formativa_cine_favorite --platform=android --empty
-        cd .\formativa_cine_favorite\
-        flutter pub add firebase_core firebase_authcloud_firestore http
-        flutter pub get
-        flutter configure 
-        flutterfire configure
-        DEPOIS DESE COMANDO SO DA ENTER DUAS VEZ 
+## Objetivos
+- Criar uma Galeria Personalizada por Usuário de Filmes Favoritos
+- Conectar o APP com uma API(base de dados) de Filmes (TMDB)
+- Permitir a Criação de Contas para Cada Usuário
+- Listar Filmes por Uma Palavra-Chave
 
-=================================================================
-                        FAZER SOZINHO
-        CRIAR 
-        lib 
-        CRIA A TELA FAVORITE/LOGIN/REGISTRO
-        lib/favorite_view.dart/login_view.dart/registro_view.dart
-        ESCREVE DENTRO DAS TRES 
+## Levantamento de Requistos do Projeto
+- ### Funcionais
 
-        TERMINAL 
-         flutter run 
-         PARA RODAR O PROJETO 
+- ### Não Funcionais
 
-=================================================================
-                        COREÇÃO
-        PASTA 
-        main.dart//favorite_view.dart/login_view.dart/registro_view.dart
+## Recursos do Projeto
+- Linguagem de Programação : Flutter/Dart
+- API TMDB: Base de Dados para Filmes
+- Firebase: Authentication / FireStore
+- Figma: Prototipagem 
+- VSCode
+- GitHub
 
-        CURIOSIDADE 
-        pubspec.yaml
-        TODAS AS BIBLIOTECA QUE INSTALEI ESTA NELE
-      
-        DEU ERRADO FALTPU 
-        TERMINAL
-        flutter pub add firebase_storage 
+## Diagramas
+1. Classe
+Demosntrar o Funcionamento das Entidades do Sistema
 
-        ENTRA 
-        android/app/build.gradle.kts
-        build.gradle.kts
-        MUDA A LINHA PARA RODAR 
-        minSdk = 23 
+- Usuário (User): classe já modelada pelo FirebaseAuth
+    - Atributos: email, senha, uid
+    - Métodos: login, registrar, logout
 
-----------------------------------------------------------------------
-        PARTE DO FILME 
+-Filmes Favoritos (FavoriteMovie): Classe Modelada pelo DEV
+    - Atributos: id, título, PosterPath, Nota
+    - Métodos: adicionar, remover, listar, atualizaNota (CRUD)
 
-        TERMINAL 
-         mkdir lib/models
-         mkdir lib/controllers
-         type nul > lib/models/movie.dart
+```mermaid
+    
+    classDiagram
+        class User{
+            +String uid
+            +String email
+            +String password
+            +createUser()
+            +login()
+            +logout()
+        }
 
-         ENTRA NA PASTA 
-         models/movie.dart
+        class FavoriteMovie{
+            +int id
+            +String title
+            +String posterPath
+            +double Rating
+            +addFavorite()
+            +removeFavorite()
+            +updateMovieRating()
+            +getFavoriteMovies()
+        }
 
-         TERMINAL 
-         type nul > lib/constrollers/tmdb_controller.dart
-
-        ENTRA E ESCREVE DENTRO
-        tmdb_controller.dart
-
-        TERMINAL 
-         type nul > lib/controllers/firestore_controller.dart
-
-        ENTRA E ESCREVE DENTRO
-        firestore_controller.dart
-
-        TERMINAL
-        flutter pub add path path_provider
-        flutter pub get
-
-        
-
-
-
+```
