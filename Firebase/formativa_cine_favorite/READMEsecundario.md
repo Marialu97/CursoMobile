@@ -78,6 +78,48 @@
 25.09.25
 
         FAZER O readme
+        ENTRA NA PASTA E ESCREVER DENTRO COMENTARIOS 
+        main.dart 
+        tmdb_controller.dart
+        movie.dart
+
+        ESCREVE DENTRO 
+        firestore_controller.dart
+        ESCREVE DENTRO 
+        favorite_view.dart
+
+        O MEU ESTAVA FALTANDO 
+        formativa_cine_favorite/lib/views
+        
+        E DENTRO DO views TEM QUE COLOCAR AS 3 PASTA 
+        favorite_view.dart/login_view.dart/registro_view.dart
+
+        TERMINAL 
+         type nul > lib/views/search_movie_view.dart
+
+         DENTRO DA PASTA 
+         formativa_cine_favorite/lib/views/search_movie_view.dart
+         ESCEVE DENTRO
+         search_movie_view.dart
+
+        MUDA DENTRO DA PASTA
+         formativa_cine_favorite/android/app/build.gradle.kts
+         E MUDA A LINHA 30 PARA 23
+
+
+        TERMINAL
+        flutter run 
+
+=================================================================
+        FAZER SOZINHO 
+        DELETA O FILME NA HORA QUE APERTA
+=================================================================
+
+        
+
+
+
+
 
 
 
