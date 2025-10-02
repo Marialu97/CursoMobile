@@ -16,7 +16,8 @@ Contruir um Aplicativo do Zero - O CineFavorite que permitirá criar uma conta e
 - Linguagem de Programação : Flutter/Dart
 - API TMDB: Base de Dados para Filmes
 - Firebase: Authentication / FireStore
-- Figma: Prototipagem 
+- Figma: Prototipagem
+ https://www.figma.com/design/N8kR8N9JkvRavsJuKjQDnO/Untitled?node-id=0-1&t=9CFycJGUCP9QOq9y-1
 - VSCode
 - GitHub
 
