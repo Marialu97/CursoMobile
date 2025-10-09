@@ -2,7 +2,7 @@
 // biblioteca latlong
 
 class LocationPoint {
-  final double latitude;
+  final double latitude; 
   final double longitude;
   final String timestamp;
 

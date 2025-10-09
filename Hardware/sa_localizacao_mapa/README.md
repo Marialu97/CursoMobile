@@ -52,6 +52,27 @@
          TERMINAL 
         flutter pub add flutter_map
 
+09.10.25
+        MUDAMOS O NOME DA PASTA
+        controllers/map_controller.dart
+        PARA 
+        point_controller.dart
+
+        TERMINAL
+        ENTRA NAS PASTAS
+        flutter pub get
+
+        ESTALA 
+        flutter pub add flutter_map
+        flutter pub add latlong2
+
+        ENTR NA PASTA E REFAZ 
+        views/map_view.dart
+        ESCREVE DENTRO 
+
+        TERMINAL COLOCA PARA RODA 
+        flutter run
+
         
 
 
